@@ -2,12 +2,9 @@
 //THIS IS THE SUPER CLASS
 var makeDancer = function(top, left, timeBetweenSteps) {
 
-  var dancer = {};
 
   // use jQuery to create an HTML <span> tag
   this.$node = $('<span class="dancer"></span>');
-  // this.top = top;
-  // this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;
   // dancer.step = function() {
   //   // the basic dancer doesn't do anything interesting at all on each step,
@@ -32,7 +29,6 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   // this one sets the position to some random default point within the body
   this.setPosition(top, left);
 
-  return dancer;
 };
  
 makeDancer.prototype.step = function () {
@@ -45,5 +41,4 @@ makeDancer.prototype.setPosition = function (top, left) {
     left: left 
   };
   this.$node.css(styleSettings);
-  // this.dancer.$node.css({ 'top': 'top', 'left': 'left'});
 };

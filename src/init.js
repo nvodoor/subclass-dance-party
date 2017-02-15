@@ -48,7 +48,7 @@ $(document).ready(function() {
     // get the maker function for the kind of dancer we're supposed to make
     
     var sillyMakerFunction = window[sillyMakerFunctionName]; //makeSillyDancer Function
-
+    console.log(sillyMakerFunction)
     // make a dancer with a random position
     var dancer = new sillyMakerFunction(
       $('body').height() * Math.random(),
@@ -61,8 +61,10 @@ $(document).ready(function() {
 
   $('.addBearButton').on('click', function(event) {
     var bearMakerFunctionName = $(this).data('bear-maker-function-name'); //makeBlinkyDancer
-  
-    var bearMakerFunction = window[bearMakerFunctionName]; //makeBlinkyDancer Function
+    console.log(bearMakerFunctionName);
+
+    var bearMakerFunction = window[bearMakerFunctionName]; 
+    console.log(bearMakerFunction);
 
     // make a dancer with a random position
     var dancer = new bearMakerFunction(
