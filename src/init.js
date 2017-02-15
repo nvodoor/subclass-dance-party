@@ -27,6 +27,8 @@ $(document).ready(function() {
       Math.random() * 1000
     );
 
+    window.dancers.push(dancer);
+
     $('body').append(dancer.$node);
   });
 
@@ -48,7 +50,7 @@ $(document).ready(function() {
     // get the maker function for the kind of dancer we're supposed to make
     
     var sillyMakerFunction = window[sillyMakerFunctionName]; //makeSillyDancer Function
-    console.log(sillyMakerFunction)
+
     // make a dancer with a random position
     var dancer = new sillyMakerFunction(
       $('body').height() * Math.random(),
@@ -56,15 +58,16 @@ $(document).ready(function() {
       Math.random() * 1000
     );
 
+    window.dancers.push(dancer);
+
     $('body').append(dancer.$node);
   });
 
   $('.addBearButton').on('click', function(event) {
     var bearMakerFunctionName = $(this).data('bear-maker-function-name'); //makeBlinkyDancer
-    console.log(bearMakerFunctionName);
 
     var bearMakerFunction = window[bearMakerFunctionName]; 
-    console.log(bearMakerFunction);
+    
 
     // make a dancer with a random position
     var dancer = new bearMakerFunction(
@@ -73,9 +76,26 @@ $(document).ready(function() {
       Math.random() * 1000
     );
 
+    window.dancers.push(dancer);
+    // handles both interaction with other dancers through a count.
+    // is a valid mouseover.
+    $('.beardancer').mouseover(function () {
+      $('.beardancer').each( function () {
+        alert('There are ' + window.dancers.length + ' dancers on the floor.');
+      });
+    });
+
     $('body').append(dancer.$node);
   });
 
 
 });
 
+$('.addLineUpbutton').on('click', function (event) {
+
+  for (var i = 0; i < window.dancers.length; i++) {
+    var top = 100; 
+    var left = 100 + (i * 100);
+    window.dancers[i].lineup(top, left);
+  }
+});
