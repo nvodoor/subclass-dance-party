@@ -42,3 +42,11 @@ makeDancer.prototype.setPosition = function (top, left) {
   };
   this.$node.css(styleSettings);
 };
+
+makeDancer.prototype.lineup = function (top, left) {
+  return this.setPosition(top, left);
+};
+
+makeDancer.prototype.fade = function (top, left) {
+  $this.node.fadeOut('slow');
+};
