@@ -12,15 +12,15 @@ describe('sillyDancer', function() {
     expect(sillyDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  it('should have a step function that makes its node move left to right', function() {
-    //we need to change the bottom to reflect test case
-      //sinon.spy(sillyDnacer.$node, "i don't know")
-      //sillyDancer.setPosition( 20, 11 );
-      //sillyDancer.setPosition( 20, 10 );
-      //expect(sillDancer.$node)
-    
-    //sinon.spy(sillyDancer.$node, 'toggle');
-    //sillyDancer.step();
+  it('should have a step function that makes its node move up & down', function() {
+
+    sinon.spy(sillyDancer.$node, 'animate' );
+    // sillyDancer.setPosition( 100, 100 );
+    // expect(sillyDancer.$node);
+    // clock.tick(timeBetweenSteps);
+    // sinon.spy(sillyDancer.$node, 'step');
+    sillyDancer.step();
+    expect(sillyDancer.$node.animate()).to.be.object;
     //expect(sillyDancer.$node.toggle.called).to.be.true;
   });
 
